@@ -1,0 +1,10 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    }
+    
+#story-root {
+    padding: 0 40px 40px;
+  }
+  

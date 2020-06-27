@@ -1,0 +1,2 @@
+# Next.js app template
+

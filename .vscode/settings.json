@@ -1,0 +1,6 @@
+{
+    "files.trimTrailingWhitespace": true,
+    "tslint.packageManager": "yarn",
+    "tslint.autoFixOnSave": true,
+    "tslint.exclude": "**/node_modules/**/*"
+}
