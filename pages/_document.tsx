@@ -46,7 +46,6 @@ class MyDocument extends Document {
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-          <link href="/css/styles.css" type="text/css" rel="stylesheet" media="screen"/>
           {(this.props as any).styleTags}
         </Head>
         <body>
