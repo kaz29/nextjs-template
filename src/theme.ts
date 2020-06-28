@@ -1,6 +1,7 @@
 import { createMuiTheme, Theme } from '@material-ui/core/styles'
 import { red, indigo, pink, orange, blue, green, grey } from '@material-ui/core/colors'
 import { BreakpointValues } from '@material-ui/core/styles/createBreakpoints'
+import { globalStyles } from './globalStyles'
 
 const defaultFontFamily = '"Roboto", "Helvetica", "Arial", sans-serif'
 const defaultBreakpoints: BreakpointValues = {
@@ -16,6 +17,12 @@ export const colors = {
 }
 
 const theme: Theme = createMuiTheme({
+  overrides: {
+    MuiCssBaseline: {
+      '@global': globalStyles,
+    },
+  },
+
   breakpoints: {
     values: defaultBreakpoints,
   },

@@ -21,7 +21,8 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "styled-components": "^5.1.1",
-    "tslint": "^6.1.2"
+    "tslint": "^6.1.2",
+    "webfontloader": "^1.6.28"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",

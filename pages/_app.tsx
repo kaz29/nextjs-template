@@ -1,8 +1,7 @@
 import { default as NextApp } from 'next/app'
 import { ThemeProvider } from '@material-ui/styles'
-import { CssBaseline } from '@material-ui/core'
-
 import theme from '~/theme'
+import GlobalStyle from '~/components/GlobalStyle'
 
 class App extends NextApp {
   componentDidMount () {
@@ -17,7 +16,7 @@ class App extends NextApp {
 
     return (
       <ThemeProvider theme={theme}>
-        <CssBaseline />
+        <GlobalStyle />
         <Component {...pageProps} />
       </ThemeProvider>
     )
