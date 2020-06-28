@@ -6,8 +6,10 @@ type Props ={
 }
 
 const Index: NextPage<Props> = () => {
+
   return (
-    <div>Hello</div>
+    <div>Hello
+    </div>
   )
 }
 
