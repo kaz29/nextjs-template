@@ -11,9 +11,10 @@ const LoadingCover: React.FC = (props) => (
 const Wrapper = withStyles((theme: Theme) => ({
   root: {
     backgroundColor: colors.coverBackground,
-    position: 'relative',
     width: '100%',
     height: '100%',
+    position: 'relative',
+    textAlign: 'center',
   },
 }))(Box)
 

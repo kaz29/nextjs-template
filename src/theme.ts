@@ -13,7 +13,7 @@ const defaultBreakpoints: BreakpointValues = {
 }
 
 export const colors = {
-  coverBackground: 'rgba(255, 255, 255, .5)',
+  coverBackground: 'rgba(0, 0, 0, .2)',
 }
 
 const theme: Theme = createMuiTheme({

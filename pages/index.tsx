@@ -1,20 +1,29 @@
 import React from 'react'
 import { NextPage } from 'next'
+import { Typography } from '@material-ui/core'
 
 type Props ={
-  test: string
+  message: string
 }
 
-const Index: NextPage<Props> = () => {
+const Index: NextPage<Props> = ({
+  message,
+}) => {
 
   return (
-    <div>Hello
-    </div>
+    <>
+      <Typography variant={'body1'} display={'block'} noWrap={true}>
+        {message}
+      </Typography>
+      <Typography variant={'body1'} display={'block'} noWrap={true}>
+        {message}
+      </Typography>
+    </>
   )
 }
 
 Index.getInitialProps = () => {
-  return { test: 'Hello, world' }
+  return { message: 'Hello, worldHello, worldHello, worldHello, worldHello, worldHello, worldHello, worldHello, worldHello, worldHello, worldHello, worldHello, worldHello, worldHello, world' }
 }
 
 export default Index
