@@ -18,7 +18,6 @@ storiesOf('material-ui/Button', module)
   .add('list', () => {
     // tslint:disable-next-line:react-hooks-nesting
     const classes = useStyles()
-
     return (
       <Grid
         container={true}

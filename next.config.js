@@ -1,5 +1,5 @@
 // @ts-ignore
 const withImages = require('next-images')
-const config = require('./app-config')
+const appconfig = require('./app-config')
 
-module.exports = withImages(config)
+module.exports = withImages(appconfig)

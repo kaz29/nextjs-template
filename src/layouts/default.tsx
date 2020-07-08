@@ -30,7 +30,7 @@ const Wrapper = withStyles((theme: Theme) => ({
 
 const ContentWrapper = withStyles((theme: Theme) => ({
   root: {
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.background.default,
     position: 'relative',
     flex: 1,
     minHeight: '100%',
@@ -42,7 +42,7 @@ const ContentWrapper = withStyles((theme: Theme) => ({
 },
 }))(Box)
 
-const StyledLoadingCover = withStyles((theme: Theme) => ({
+const StyledLoadingCover = withStyles(() => ({
   root: {
     position: 'absolute',
     top: 0,

@@ -1,17 +1,21 @@
 import React from 'react'
 import { useStyles } from './styles'
-import { Button } from '@material-ui/core'
+import { Box, Typography } from '@material-ui/core'
 
 type Props = {
-  onStart: () => void
 }
-const Presentational: React.FC<Props> = ({
-  onStart,
-}) => {
+
+const Presentational: React.FC<Props> = () => {
   const classes = useStyles()
 
   return (
-    <Button onClick={onStart} />
+    <Box className={classes.container}>
+      <Typography
+        variant="h5"
+        align="center">
+        Welcome to NextJS Template
+      </Typography>
+    </Box>
   )
 }
 

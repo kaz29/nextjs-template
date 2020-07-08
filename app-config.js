@@ -1,5 +1,8 @@
 module.exports = {
   publicRuntimeConfig: {
-    // apiBaseURL: process.env.API_ENDPOINT + '/api',
+    weatherApi: {
+      endpoint: process.env.WEATHER_API_ENDPOINT,
+      apikey: process.env.WEATHER_API_KEY,
+    },
   },
 }
