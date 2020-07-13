@@ -2,6 +2,16 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core'
 
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    wrapper: {
+      backgroundColor: theme.palette.primary.main,
+      position: 'relative',
+      flex: 1,
+      minWidth: '100%',
+      minHeight: 56,
+      [theme.breakpoints.up('sm')]: {
+        minHeight: 64,
+      },
+    },
     menuButton: {
       marginRight: theme.spacing(2),
     },
