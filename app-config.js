@@ -1,3 +1,4 @@
+// @ts-ignore
 module.exports = {
   publicRuntimeConfig: {
     serverBaseURL: process.env.WEATHER_API_ENDPOINT,
