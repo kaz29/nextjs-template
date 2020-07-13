@@ -1,12 +1,7 @@
-/**
- * リクエストの結果
- * （Responseが予約語だったためResult）
- */
-class Result<MainResponse = {}, MetaResponse = {}> {
+class Result<MainResponse = {}> {
   constructor(
     public readonly statusCode: number,
-    public readonly main: MainResponse,
-    public readonly meta: MetaResponse,
+    public readonly response: MainResponse,
   ) {}
 }
 

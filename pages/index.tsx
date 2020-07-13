@@ -19,15 +19,12 @@ const Index: NextPage<Props> = () => {
 
 Index.getInitialProps = async () => {
 
-  const {
-    main: weather,
-    meta: location,
-  } = await client.request(WeatherAPI.getCurrent({
+  const {response: { current, location }} = await client.request(WeatherAPI.getCurrent({
     q: 'Tokyo',
     key: apikey,
   }))
 
-  console.log(weather)
+  console.log(current)
   console.log(location)
 
   return {}

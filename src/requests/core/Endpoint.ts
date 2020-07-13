@@ -4,8 +4,6 @@ export type Method = 'GET' | 'POST' | 'PUT' |'PATCH' | 'DELETE'
 
 type Config = {
   params?: AnyObject
-  transformMainResponse?: (response: AnyObject) => any
-  transformMetaResponse?: (response: AnyObject) => any
 }
 
 class Endpoint<MainData = {}, MetaData = {}> {

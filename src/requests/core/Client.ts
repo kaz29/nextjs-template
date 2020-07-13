@@ -1,6 +1,5 @@
 import fetch from 'isomorphic-unfetch'
 import { stringify } from 'query-string'
-import { changeKeyFormat } from '~/utils/form'
 import { isServer } from '~/utils/device'
 import { AnyObject } from '~/types'
 import Endpoint from './Endpoint'
@@ -14,9 +13,7 @@ class Client {
   browserBaseURL: string
   serverBaseURL?: string
   defaultHeaders?: Headers
-  sendDataFormat?: 'camel' | 'snake'
-  getDataFormat?: 'camel' | 'snake'
-  extension?: string
+
   validate = (res: Response): boolean => {
     return res.status >= 200 && res.status < 400
   }
@@ -30,21 +27,7 @@ class Client {
     Object.assign(this, rest)
   }
 
-  public readonly mainResponseGetter = (
-    response: Response,
-    formatter: (res: AnyObject) => any,
-  ): any => {
-    return formatter(response)
-  }
-
-  public readonly metaResponseGetter = (
-    response: AnyObject,
-    formatter: (res: AnyObject) => any,
-  ): any => {
-    return formatter(response)
-  }
-
-  public async request<T, U>(endpoint: Endpoint<T, U>, token?: string): Promise<Result<T, U>> {
+  public async request<T>(endpoint: Endpoint<T>): Promise<Result<T>> {
     const { method, config } = endpoint
     const { params = {} } = config
 
@@ -52,24 +35,19 @@ class Client {
     let body: AnyObject | undefined
 
     if (method === 'GET') {
-      // Queryはスネークケースを強制
-      query = changeKeyFormat(params, 'snake') as AnyObject
+      query = params  as AnyObject
     } else {
-      // POST PUT PATCH
-      body = changeKeyFormat(params, this.sendDataFormat) as AnyObject
+      body = params as AnyObject
     }
 
-    // URLを作成
     const baseURL = isServer ? this.serverBaseURL : this.browserBaseURL
-    // TODO ここの設定はプロジェクト毎に変更できるようにする
     const queryString = stringify(query, { arrayFormat: 'bracket' })
-    const buildURL = `${baseURL}${endpoint.path}${this.extension}?${queryString}`
+    const buildURL = `${baseURL}${endpoint.path}.json?${queryString}`
 
     return fetch(buildURL, {
         method: endpoint.method,
         headers: {
           ...this.defaultHeaders,
-          Authorization: `Bearer ${token}`,
         },
         mode: 'cors',
         body: JSON.stringify(body),
@@ -79,17 +57,10 @@ class Client {
           return Promise.reject(res)
         }
 
-        let response = await res.json()
-        if (this.getDataFormat) {
-          response = changeKeyFormat(response, this.getDataFormat)
-        }
-
-        const mainFormatter = config.transformMainResponse || (r => r)
-        const metaFormatter = config.transformMetaResponse || (r => r)
-        return new Result<T, U>(
+        const response = await res.json()
+        return new Result<T>(
           res.status,
-          this.mainResponseGetter(response, mainFormatter),
-          this.metaResponseGetter(response, metaFormatter),
+          response,
         )
       })
   }
