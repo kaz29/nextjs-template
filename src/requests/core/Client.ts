@@ -35,7 +35,7 @@ class Client {
     let body: AnyObject | undefined
 
     if (method === 'GET') {
-      query = params  as AnyObject
+      query = params as AnyObject
     } else {
       body = params as AnyObject
     }
