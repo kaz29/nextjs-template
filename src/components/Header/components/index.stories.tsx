@@ -2,6 +2,7 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import Header from './'
 import { useTheme } from '@material-ui/core'
+import { menus } from '../constants'
 
 storiesOf('components/Header', module)
   .add('default', () => {
@@ -14,7 +15,11 @@ storiesOf('components/Header', module)
         height: '300px',
         backgroundColor: theme.palette.grey[300],
       }}>
-        <Header />
+        <Header
+          menus={menus}
+          currentPath="/"
+          handleMenuSelect={(path) => console.log(`menuSelected: ${path}`)}
+        />
       </div>
     )
   })

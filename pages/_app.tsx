@@ -1,3 +1,4 @@
+import React from 'react'
 import { default as NextApp } from 'next/app'
 import { ThemeProvider } from '@material-ui/styles'
 import { Provider } from 'mobx-react'

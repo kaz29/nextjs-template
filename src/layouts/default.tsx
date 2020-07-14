@@ -2,7 +2,7 @@ import React from 'react'
 import { useObserver } from 'mobx-react'
 import { useStores } from '~/helpers/useStores'
 import { withStyles, Theme, Box } from '@material-ui/core'
-import Header from '~/components/Header/components'
+import Header from '~/components/Header'
 import LoadingCover from '~/components/LoadingCover'
 
 const DefaultLayout: React.FC = ({ children, ...rest }) => {

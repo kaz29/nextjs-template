@@ -5,15 +5,23 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
-import Menu from '@material-ui/core/Menu'
-import MenuItem from '@material-ui/core/MenuItem'
+import {default as MenuComponent } from '@material-ui/core/Menu'
 import { useStyles } from './styles'
+import MenuItem from './MenuItem'
+import { Menu } from '../types'
 
 type Props = {
-  selected: 'current' | 'forecast'
+  menus: Menu[]
+  currentPath: string
+  handleMenuSelect: (path: string) => void
 }
 
-const Header: React.FC<Props> = (props) => {
+const Presentational: React.FC<Props> = ({
+  menus,
+  currentPath,
+  handleMenuSelect,
+  ...rest
+}) => {
   const classes = useStyles()
   const [anchorEl, setAnchorEl] = useState<HTMLElement|null>(null)
 
@@ -25,8 +33,13 @@ const Header: React.FC<Props> = (props) => {
     setAnchorEl(null)
   }
 
+  const handleMenuClick = (path: string) => {
+    handleMenuSelect(path)
+    setAnchorEl(null)
+  }
+
   return (
-    <Box className={classes.wrapper} {...props}>
+    <Box className={classes.wrapper} {...rest}>
       <Box className={classes.container}>
         <AppBar position="static" elevation={0}>
           <Toolbar>
@@ -44,20 +57,26 @@ const Header: React.FC<Props> = (props) => {
             </Typography>
           </Toolbar>
         </AppBar>
-        <Menu
-          id="simple-menu"
+        <MenuComponent
+          id="main-menu"
           anchorEl={anchorEl}
           keepMounted={true}
           open={Boolean(anchorEl)}
           onClose={handleClose}
         >
-          <MenuItem onClick={handleClose}>Profile</MenuItem>
-          <MenuItem onClick={handleClose}>My account</MenuItem>
-          <MenuItem onClick={handleClose}>Logout</MenuItem>
-        </Menu>
+          {menus.map((menu, index) => {
+            return <MenuItem
+              key={`menuitem-${index}`}
+              label={menu.label}
+              path={menu.path}
+              currentPath={currentPath}
+              onClick={handleMenuClick}
+            />
+          })}
+        </MenuComponent>
       </Box>
     </Box>
   )
 }
 
-export default Header
+export default Presentational
