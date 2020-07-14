@@ -79,13 +79,13 @@ const theme: Theme = createMuiTheme({
       hint: 'rgba(0, 0, 0, 0.38)',
     },
     background: {
-      paper: '#000',
+      paper: '#fff',
       default: grey[50],
     },
     action: {
       active: 'rgba(0, 0, 0, 0.54)',
-      hover: 'rgba(0, 0, 0, 0.04)',
-      hoverOpacity: 0.04,
+      hover: 'rgba(0, 0, 0, 0.1)',
+      hoverOpacity: 0.1,
       selected: 'rgba(0, 0, 0, 0.08)',
       selectedOpacity: 0.08,
       disabled: 'rgba(0, 0, 0, 0.26)',
