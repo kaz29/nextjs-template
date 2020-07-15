@@ -1,9 +1,9 @@
-import { createStyles, makeStyles, Theme } from '@material-ui/core'
+import { createStyles, makeStyles } from '@material-ui/core'
 
-export const useStyles = makeStyles((theme: Theme) =>
+export const useStyles = makeStyles(() =>
   createStyles({
     container: {
-      width: theme.breakpoints.values.sm,
+      width: 320,
       height: 320,
       marginTop: 16,
       marginLeft: 'auto',

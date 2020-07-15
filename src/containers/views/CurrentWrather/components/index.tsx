@@ -5,7 +5,7 @@ import { CurrentWeather } from '~/types'
 import Weather from './Weather'
 
 type Props = {
-  currentWeather: CurrentWeather
+  currentWeather?: CurrentWeather
 }
 
 const Presentational: React.FC<Props> = ({
@@ -15,7 +15,10 @@ const Presentational: React.FC<Props> = ({
 
   return (
     <Box className={classes.container}>
-      <Weather currentWeather={currentWeather}/>
+      {
+        currentWeather &&
+        <Weather currentWeather={currentWeather}/>
+      }
     </Box>
   )
 }
