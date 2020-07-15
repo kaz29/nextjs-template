@@ -1,6 +1,6 @@
 import React from 'react'
 import { NextPage } from 'next'
-import HomeContainer from '~/containers/Home'
+import HomeContainer from '~/containers/views/Home'
 import client from '~/requests/client'
 import WeatherAPI from '~/requests/WeatherAPI'
 import getConfig from 'next/config'
