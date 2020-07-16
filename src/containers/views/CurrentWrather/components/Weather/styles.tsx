@@ -15,5 +15,8 @@ export const useStyles = makeStyles(() =>
       marginLeft: 'auto',
       marginRight: 'auto',
     },
+    windIconContainer: {
+      marginTop: 16,
+    },
   }),
 )
