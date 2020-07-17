@@ -114,7 +114,7 @@ const theme: Theme = createMuiTheme({
     h2: {
       fontFamily: defaultFontFamily,
       fontWeight: 300,
-      fontSize: '3,75rem',
+      fontSize: '3.75rem',
       lineHeight: 1.2,
       letterSpacing: '-0.00833em',
     },

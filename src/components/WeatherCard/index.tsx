@@ -8,7 +8,7 @@ type Props = {
   currentWeather: CurrentWeather
 }
 
-const Weather: React.FC<Props> = ({
+const WeatherCard: React.FC<Props> = ({
   currentWeather,
 }) => {
   const classes = useStyles()
@@ -17,7 +17,7 @@ const Weather: React.FC<Props> = ({
     <Card className={classes.container}>
       <CardHeader
         title={`${currentWeather.location.name} - ${currentWeather.location.country}`}
-        subheader={`${currentWeather.location.localtime} (Current Weather)`}
+        subheader={currentWeather.location.localtime}
       />
       <CardMedia
         className={classes.icon}
@@ -41,4 +41,4 @@ const Weather: React.FC<Props> = ({
   )
 }
 
-export default Weather
+export default WeatherCard

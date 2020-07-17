@@ -1,11 +1,11 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import Presentational from '.'
+import WeatherCard from '.'
 import { currentWeather } from '~/__fixtures__/current_weather'
 
-storiesOf('containers/views/CurrentWeather', module)
+storiesOf('components/WeatherCard', module)
   .add('default', () => (
-    <Presentational
+    <WeatherCard
       currentWeather={currentWeather}
     />
   ))

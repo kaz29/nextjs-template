@@ -48,7 +48,54 @@ export type Weather = {
   gust_kph: number,
 }
 
+export type ForecastData = {
+  maxtemp_c: number,
+  maxtemp_f: number,
+  mintemp_c: number,
+  mintemp_f: number,
+  avgtemp_c: number,
+  avgtemp_f: number,
+  maxwind_mph: number,
+  maxwind_kph: number,
+  totalprecip_mm: number,
+  totalprecip_in: number,
+  avgvis_km: number,
+  avgvis_miles: number,
+  avghumidity: number,
+  daily_will_it_rain: number,
+  daily_chance_of_rain: number,
+  daily_will_it_snow: number,
+  daily_chance_of_snow: number,
+  condition: Condition,
+  uv: number,
+}
+
+export type Astro = {
+  sunrise: string,
+  sunset: string,
+  moonrise: string,
+  moonset: string,
+}
+
+export type ForecastDay = {
+  date: string,
+  date_epoch: number,
+  day: ForecastData,
+  astro: Astro,
+}
+
 export type CurrentWeather = {
   location: Location,
   current: Weather,
+}
+
+export type Alert = {}
+
+export type Forecast = {
+  location: Location,
+  current: Weather,
+  forecast: {
+    forecastday: ForecastDay[],
+  },
+  alert: Alert,
 }
