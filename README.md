@@ -1,6 +1,6 @@
 # Next.js app template
 
-# config
+## config
 
 - nextjs
 - material-ui
@@ -10,3 +10,7 @@
     - material-ui (storybook-addon-material-ui)[]
 - mobx
 - jest
+
+## TODO
+
+- i18n - [next-translate](https://github.com/vinissimus/next-translate) 使うか...

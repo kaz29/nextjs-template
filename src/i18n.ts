@@ -9,7 +9,7 @@ const i18nInstance = new NextI18Next({
   defaultLanguage: languages[0],
   otherLanguages: languages.slice(1),
   browserLanguageDetection: true,
-  serverLanguageDetection: true,
+  // serverLanguageDetection: true,
 })
 
 export function t(sentence: string, options: any = {}): string {
