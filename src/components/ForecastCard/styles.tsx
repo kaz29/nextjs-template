@@ -3,11 +3,12 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core'
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
-      flex: 1,
       height: 250,
+      width: 320,
+      [theme.breakpoints.up('sm')]: {
+        width: '100%',
+      },
       marginTop: 16,
-      marginLeft: 'auto',
-      marginRight: 'auto',
     },
     icon: {
       width: 64,
