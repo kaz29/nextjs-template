@@ -4,7 +4,7 @@ export const useStyles = makeStyles(() =>
   createStyles({
     container: {
       width: 320,
-      height: 320,
+      height: 260,
       marginTop: 16,
       marginLeft: 'auto',
       marginRight: 'auto',
@@ -16,7 +16,7 @@ export const useStyles = makeStyles(() =>
       marginRight: 'auto',
     },
     windIconContainer: {
-      marginTop: 16,
+      marginTop: 8,
     },
   }),
 )

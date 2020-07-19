@@ -16,6 +16,8 @@ const WeatherCard: React.FC<Props> = ({
   return (
     <Card className={classes.container}>
       <CardHeader
+        titleTypographyProps={{align: 'center'}}
+        subheaderTypographyProps={{align: 'center'}}
         title={`${currentWeather.location.name} - ${currentWeather.location.country}`}
         subheader={currentWeather.location.localtime}
       />

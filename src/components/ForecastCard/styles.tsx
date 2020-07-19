@@ -3,7 +3,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core'
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
-      width: 320,
+      flex: 1,
       height: 250,
       marginTop: 16,
       marginLeft: 'auto',
