@@ -19,31 +19,32 @@ const Presentational: React.FC<Props> = ({
   const classes = useStyles()
 
   return (
-    <Grid
-      container={true}
-      className={classes.container}
-      component="div"
-      alignItems="center"
-      direction={width && isWidthUp('sm', width) ? 'row': 'column'}
-      spacing={3}
-    >
-      <Grid item={true} xs={12}>
-        <Box>
-          {
-            forecast &&
-            <WeatherCard currentWeather={forecast}/>
-          }
-        </Box>
+    <Box className={classes.container}>
+      <Grid
+        container={true}
+        component="div"
+        alignItems="center"
+        direction={width && isWidthUp('sm', width) ? 'row': 'column'}
+        spacing={3}
+      >
+        <Grid item={true} xs={12}>
+          <Box>
+            {
+              forecast &&
+              <WeatherCard currentWeather={forecast}/>
+            }
+          </Box>
+        </Grid>
+        {
+          forecast &&
+          forecast.forecast.forecastday.map((forecastDay, index) => (
+            <Grid key={`forecast-day-${index}`} item={true} xs={width && isWidthUp('sm', width) ? true: 12}>
+              <ForecastCard forecastDay={forecastDay} />
+            </Grid>
+          ))
+        }
       </Grid>
-      {
-        forecast &&
-        forecast.forecast.forecastday.map((forecastDay, index) => (
-          <Grid key={`forecast-day-${index}`} item={true} xs={width && isWidthUp('sm', width) ? true: 12}>
-            <ForecastCard forecastDay={forecastDay} />
-          </Grid>
-        ))
-      }
-    </Grid>
+    </Box>
   )
 }
 

@@ -11,6 +11,13 @@
 - mobx
 - jest
 
+## test on dev
+
+```
+$ yarn build
+$ docker-compose up -d
+```
+
 ## TODO
 
 - i18n - [next-translate](https://github.com/vinissimus/next-translate) 使うか...
