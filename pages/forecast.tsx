@@ -11,8 +11,4 @@ const Forecast: NextPage<Props> = () => {
   )
 }
 
-Forecast.getInitialProps = async () => {
-  return {}
-}
-
 export default Forecast

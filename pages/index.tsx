@@ -11,8 +11,4 @@ const Index: NextPage<Props> = () => {
   )
 }
 
-Index.getInitialProps = async () => {
-  return {}
-}
-
 export default Index

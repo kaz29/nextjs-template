@@ -11,8 +11,4 @@ const CurrentWeather: NextPage<Props> = () => {
   )
 }
 
-CurrentWeather.getInitialProps = async () => {
-  return {}
-}
-
 export default CurrentWeather
