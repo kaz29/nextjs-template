@@ -4,7 +4,7 @@ export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     container: {
       width: 320,
-      height: 320,
+      height: 250,
       marginTop: 16,
       marginLeft: 'auto',
       marginRight: 'auto',
