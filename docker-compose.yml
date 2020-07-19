@@ -8,4 +8,5 @@ services:
       - 80:80
     volumes:
       - ./out:/usr/share/nginx/html:cached
+      - ./nginx.conf.d:/etc/nginx/conf.d
     restart: always
