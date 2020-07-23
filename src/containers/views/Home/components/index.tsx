@@ -15,7 +15,7 @@ const Presentational: React.FC<Props> = () => {
       <Typography
         variant="h5"
         align="center">
-        {t('Welcome to')} NextJS Template
+        {t('Welcome to')} NextJS Template - deploytest
       </Typography>
     </Box>
   )
