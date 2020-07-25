@@ -1,7 +1,8 @@
+// @ts-ignore
 module.exports = {
   publicRuntimeConfig: {
-    // browserBaseURL: process.env.API_ENDPOINT + '/api',
-    // serverBaseURL: process.env.API_ENDPOINT_SERVER + '/api',
-    imageBaseURL: process.env.IMAGE_ENDPOINT,
+    serverBaseURL: process.env.WEATHER_API_ENDPOINT,
+    browserBaseURL: process.env.WEATHER_API_ENDPOINT,
+    apikey: process.env.WEATHER_API_KEY,
   },
 }

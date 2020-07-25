@@ -1,18 +1,14 @@
 import React from 'react'
 import { NextPage } from 'next'
+import HomeContainer from '~/containers/views/Home'
 
 type Props ={
-  test: string
 }
 
 const Index: NextPage<Props> = () => {
   return (
-    <div>Hello</div>
+    <HomeContainer />
   )
-}
-
-Index.getInitialProps = () => {
-  return { test: 'Hello, world' }
 }
 
 export default Index

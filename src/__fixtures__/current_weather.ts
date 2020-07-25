@@ -1,0 +1,43 @@
+import { CurrentWeather } from '~/types'
+
+export const currentWeather: CurrentWeather = {
+  location: {
+    name: 'Tokyo',
+    region: 'TÅkyÅ',
+    country: 'Japan',
+    lat: 35.69,
+    lon: 139.69,
+    tz_id: 'Asia/Tokyo',
+    localtime_epoch: 1594763203,
+    localtime: '2020-07-15 6:46',
+  },
+  current: {
+    last_updated_epoch: 1594763137,
+    last_updated: '2020-07-15 06:45',
+    temp_c: 21,
+    temp_f: 69.8,
+    is_day: 1,
+    condition: {
+      text: 'Light rain',
+      icon: '//cdn.weatherapi.com/weather/64x64/day/296.png',
+      code: 1183,
+    },
+    wind_mph: 8.1,
+    wind_kph: 13,
+    wind_degree: 50,
+    wind_dir: 'NE',
+    pressure_mb: 999,
+    pressure_in: 30,
+    precip_mm: 0.3,
+    precip_in: 0.01,
+    humidity: 94,
+    cloud: 75,
+    feelslike_c: 21,
+    feelslike_f: 69.8,
+    vis_km: 8,
+    vis_miles: 4,
+    uv: 5,
+    gust_mph: 16.8,
+    gust_kph: 27,
+  },
+}

@@ -7,6 +7,7 @@ import { I18nextProvider } from 'react-i18next'
 import { withI18n } from 'storybook-addon-i18n'
 import i18n from './i18n'
 import {muiTheme} from 'storybook-addon-material-ui'
+// @ts-ignore
 import theme from '~/theme'
 import config from '../app-config'
 import { setConfig } from "next/config";
