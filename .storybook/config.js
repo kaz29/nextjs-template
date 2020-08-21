@@ -9,10 +9,6 @@ import i18n from './i18n'
 import {muiTheme} from 'storybook-addon-material-ui'
 // @ts-ignore
 import theme from '~/theme'
-import config from '../app-config'
-import { setConfig } from "next/config";
-
-setConfig(config)
 
 const req = require.context('../src/', true, /.*\.stories\.tsx?$/);
 function loadStories() {

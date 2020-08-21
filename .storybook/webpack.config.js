@@ -18,5 +18,7 @@ module.exports = ({ config }) => {
     ]
   });
   config.resolve.extensions.push('.ts', '.tsx', '.js', '.jsx');
+  config.resolve.alias['next/config'] = path.resolve(__dirname, '../src/__mocks__/nextConfig')
+
   return config;
 };

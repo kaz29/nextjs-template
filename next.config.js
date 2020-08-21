@@ -1,5 +1,10 @@
 // @ts-ignore
 const withImages = require('next-images')
-const appconfig = require('./app-config')
 
-module.exports = withImages(appconfig)
+module.exports = withImages({
+  publicRuntimeConfig: {
+    serverBaseURL: process.env.WEATHER_API_ENDPOINT,
+    browserBaseURL: process.env.WEATHER_API_ENDPOINT,
+    apikey: process.env.WEATHER_API_KEY,
+  },
+})
