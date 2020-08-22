@@ -1,10 +1,9 @@
 import React from 'react'
 import { AppContext } from 'next/app'
 import { NextComponentType, NextPageContext } from 'next'
+import { isServer } from '~/utils/device'
 
 export const withMobx = (makeStore: MakeStore) => {
-  const isServer = typeof window === 'undefined'
-
   const initStore = (initialState?: any) => {
     const storeKey = '__NEXT_MOBX_STORE__'
     const createStore = () => {
@@ -24,23 +23,6 @@ export const withMobx = (makeStore: MakeStore) => {
   return (App: NextComponentType | any) =>
     class WrappedApp extends React.Component<WrappedAppProps> {
       public static displayName = `withMobx(${App.displayName || App.name || 'App'})`
-
-      public static getInitialProps = async (appContext: NextJSAppContext) => {
-        const store = initStore()
-        appContext.ctx.store = store
-        appContext.ctx.isServer = isServer
-
-        let initialProps = {}
-
-        if ('getInitialProps' in App) {
-          initialProps = await App.getInitialProps.call(App, appContext)
-        }
-
-        return {
-          initialState: store,
-          initialProps,
-        }
-      }
 
       public constructor(props: WrappedAppProps) {
         super(props)

@@ -7,18 +7,24 @@ import { useStores } from '~/helpers/useStores'
 import { useSnackbar } from 'notistack'
 
 type Props = {
+  code?: string
 }
-const HomeContainer: React.FC<Props> = () => {
+const ForecastView: React.FC<Props> = ({
+  code,
+}) => {
   const {app} = useStores()
   const { enqueueSnackbar } = useSnackbar()
   const [forecast, setForecast] = useState<Forecast|undefined>(undefined)
 
   useEffect(() => {
+    if (!code) {
+      return
+    }
     (async () => {
       try {
         app.showLoading()
         const {response} = await client.request(WeatherAPI.getForecast({
-          q: 'Tokyo',
+          q: code,
           days: 7,
           key: WeatherAPI.getApiKey(),
         }))
@@ -29,11 +35,11 @@ const HomeContainer: React.FC<Props> = () => {
         app.hideLoading()
       }
     })()
-  }, [])
+  }, [code])
 
   return (
     <Presentational forecast={forecast} />
   )
 }
 
-export default HomeContainer
+export default ForecastView

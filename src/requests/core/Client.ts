@@ -1,6 +1,5 @@
 import fetch from 'isomorphic-unfetch'
 import { stringify } from 'query-string'
-import { isServer } from '~/utils/device'
 import { AnyObject } from '~/types'
 import Endpoint from './Endpoint'
 import Result from './Result'
@@ -11,7 +10,6 @@ type Config = Partial<Client> & Required<Pick<Client, 'browserBaseURL'>>
 
 class Client {
   browserBaseURL: string
-  serverBaseURL?: string
   defaultHeaders?: Headers
 
   validate = (res: Response): boolean => {
@@ -19,10 +17,6 @@ class Client {
   }
 
   constructor({ browserBaseURL, ...rest }: Config) {
-    if (isServer && !rest.serverBaseURL) {
-      throw new Error('you must set serverBaseURL')
-    }
-
     this.browserBaseURL = browserBaseURL
     Object.assign(this, rest)
   }
@@ -40,7 +34,7 @@ class Client {
       body = params as AnyObject
     }
 
-    const baseURL = isServer ? this.serverBaseURL : this.browserBaseURL
+    const baseURL = this.browserBaseURL
     const queryString = stringify(query, { arrayFormat: 'bracket' })
     const buildURL = `${baseURL}${endpoint.path}.json?${queryString}`
 

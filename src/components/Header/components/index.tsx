@@ -9,11 +9,12 @@ import {default as MenuComponent } from '@material-ui/core/Menu'
 import { useStyles } from './styles'
 import MenuItem from './MenuItem'
 import { Menu } from '../types'
+import { Divider } from '@material-ui/core'
 
 type Props = {
   menus: Menu[]
   currentPath: string
-  handleMenuSelect: (path: string) => void
+  handleMenuSelect: (path: string, as: string) => void
 }
 
 const Presentational: React.FC<Props> = ({
@@ -33,8 +34,8 @@ const Presentational: React.FC<Props> = ({
     setAnchorEl(null)
   }
 
-  const handleMenuClick = (path: string) => {
-    handleMenuSelect(path)
+  const handleMenuClick = (path: string, as: string) => {
+    handleMenuSelect(path, as)
     setAnchorEl(null)
   }
 
@@ -65,13 +66,20 @@ const Presentational: React.FC<Props> = ({
           onClose={handleClose}
         >
           {menus.map((menu, index) => {
-            return <MenuItem
-              key={`menuitem-${index}`}
-              label={menu.label}
-              path={menu.path}
-              currentPath={currentPath}
-              onClick={handleMenuClick}
-            />
+            if (menu.path && menu.as) {
+              return <MenuItem
+                key={`menuitem-${index}`}
+                label={menu.label}
+                path={menu.path}
+                as={menu.as}
+                currentPath={currentPath}
+                onClick={handleMenuClick}
+              />
+            } else {
+              return <Divider
+                key={`menuitem-${index}`}
+              />
+            }
           })}
         </MenuComponent>
       </Box>

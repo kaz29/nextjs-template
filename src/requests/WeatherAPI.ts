@@ -1,6 +1,6 @@
 import { CurrentWeather, Forecast } from '~/types'
 import Endpoint from './core/Endpoint'
-import getConfig from 'next/config'
+import getConfig from '~/utils/config'
 
 export type GetCurrentParam = {
   q: string,
@@ -15,10 +15,8 @@ export type GetForecastParam = {
 
 class WeatherAPI {
   static getApiKey = (): string => {
-    const { publicRuntimeConfig } = getConfig()
-    const { apikey } = publicRuntimeConfig
-
-    return apikey
+    const apikey = getConfig('apikey')
+    return apikey || ''
   }
 
   static getCurrent = (params: GetCurrentParam) => {

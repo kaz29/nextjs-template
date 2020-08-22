@@ -5,19 +5,21 @@ type Props = {
   label: string
   currentPath: string
   path: string
-  onClick: (path: string) => void
+  as: string
+  onClick: (path: string, as: string) => void
 }
 
 const MenuItem: React.FC<Props> = ({
   label,
   currentPath,
   path,
+  as,
   onClick,
 }) => {
 
   return <MaterialUIMenuItem
-    selected={currentPath === path}
-    onClick={() => onClick(path)}>
+    selected={currentPath === as}
+    onClick={() => onClick(path, as)}>
     {label}
   </MaterialUIMenuItem>
 }

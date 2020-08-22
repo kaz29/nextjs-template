@@ -4,11 +4,26 @@ export const menus: Menu[] = [
   {
     label: 'Home',
     path: '/',
+    as: '/',
   },{
-    label: 'Current',
-    path: '/current',
+    label: 'Current - Tokyo',
   },{
-    label: 'Forecast',
-    path: '/forecast',
+    label: 'Current - Tokyo',
+    path: '/current/[code]',
+    as: '/current/tokyo',
+  },{
+    label: 'Current - Osaka',
+    path: '/current/[code]',
+    as: '/current/osaka',
+  },{
+    label: 'Current - Tokyo',
+  },{
+    label: 'Forecast - Tokyo',
+    path: '/forecast/[code]',
+    as: '/forecast/tokyo',
+  },{
+    label: 'Forecast - Osaka',
+    path: '/forecast/[code]',
+    as: '/forecast/osaka',
   },
 ]
