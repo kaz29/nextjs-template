@@ -1,6 +1,6 @@
 import React, { } from 'react'
 import Presentational from './components'
-import { useRouter } from 'next/router'
+import Router, { useRouter } from 'next/router'
 import { menus } from './constants'
 
 type Props = {
@@ -9,9 +9,10 @@ type Props = {
 const Header: React.FC<Props> = (props) => {
   const router = useRouter()
 
-  const handleMenuSelect = (path: string) => {
-    router.push(path)
+  const handleMenuSelect = (path: string, as: string) => {
+    Router.push(path, as)
   }
+
   return (
     <Presentational
       menus={menus}

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "rm -rf ./.next ./out && next build && next export",
     "start": "next start",
     "test": "NODE_ENV=test jest --no-cache --env=jsdom",
     "test:ci": "NODE_ENV=test jest --ci --reporters=default --reporters=jest-junit --no-cache",
