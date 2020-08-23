@@ -15,7 +15,7 @@ export type GetForecastParam = {
 
 class WeatherAPI {
   static getApiKey = (): string => {
-    const apikey = getConfig('apikey')
+    const apikey = getConfig('WEATHER_API_KEY')
     return apikey || ''
   }
 
