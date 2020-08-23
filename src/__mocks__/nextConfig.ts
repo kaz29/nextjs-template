@@ -1,9 +1,8 @@
 const getConfig = () => {
   return {
     publicRuntimeConfig: {
-      serverBaseURL: process.env.WEATHER_API_ENDPOINT,
-      browserBaseURL: process.env.WEATHER_API_ENDPOINT,
-      apikey: process.env.WEATHER_API_KEY,
+      WEATHER_API_ENDPOINT: process.env.WEATHER_API_ENDPOINT,
+      WEATHER_API_KEY: process.env.WEATHER_API_KEY,
     },
   }
 }
