@@ -1,8 +1,11 @@
 {
     "routes": [
         {
-            "route": "/current/*",
-            "rewrite": "/current/[code].html"
+            "route": "/current/tokyo",
+            "rewrite": "/current/tokyo.html"
+        }, {
+            "route": "/current/osaka",
+            "rewrite": "/current/osaka.html"
         }, {
             "route": "/forecast/*",
             "rewrite": "/forecast/[code].html"
