@@ -1,0 +1,11 @@
+{
+    "routes": [
+        {
+            "route": "/current/*",
+            "rewrite": "/current/[code].html"
+        }, {
+            "route": "/forecast/*",
+            "rewrite": "/forecast/[code].html"
+        }
+    ]
+}
