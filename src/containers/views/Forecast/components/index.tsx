@@ -6,17 +6,28 @@ import ForecastCard from '~/components/ForecastCard'
 import WeatherCard from '~/components/WeatherCard'
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth'
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints'
+import LoadingCover from '~/components/LoadingCover'
 
 type Props = {
+  loading: boolean
   forecast?: Forecast
   width?: Breakpoint
 }
 
 const Presentational: React.FC<Props> = ({
+  loading,
   forecast,
   width,
 }) => {
   const classes = useStyles()
+
+  if (loading) {
+    return (
+      <Box className={classes.loadingContainer}>
+        <LoadingCover />
+      </Box>
+    )
+  }
 
   return (
     <Box className={classes.container}>

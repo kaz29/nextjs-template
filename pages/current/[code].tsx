@@ -1,6 +1,6 @@
 import React from 'react'
 import { NextPage } from 'next'
-import CurrentContainerView from '~/containers/views/CurrentWrather'
+import CurrentContainerView from '~/containers/views/CurrentWeather'
 
 type Props = React.ComponentProps<typeof CurrentContainerView>
 

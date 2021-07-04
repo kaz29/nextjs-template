@@ -1,22 +1,17 @@
 import React from 'react'
-import { useObserver } from 'mobx-react'
-import { useStores } from '~/helpers/useStores'
 import { withStyles, Theme, Box } from '@material-ui/core'
 import Header from '~/components/Header'
-import LoadingCover from '~/components/LoadingCover'
 
 const DefaultLayout: React.FC = ({ children, ...rest }) => {
-  const { app } = useStores()
 
-  return useObserver(() => (
+  return (
     <Wrapper {...rest}>
       <Header />
       <ContentWrapper>
         {children}
       </ContentWrapper>
-      { app.isLoading && (<StyledLoadingCover />)}
     </Wrapper>
-  ))
+  )
 }
 
 const Wrapper = withStyles((theme: Theme) => ({
@@ -41,17 +36,5 @@ const ContentWrapper = withStyles((theme: Theme) => ({
     },
 },
 }))(Box)
-
-const StyledLoadingCover = withStyles(() => ({
-  root: {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-    width: 'auto',
-    height: 'auto',
-  },
-}))(LoadingCover)
 
 export default DefaultLayout

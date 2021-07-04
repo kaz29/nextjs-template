@@ -6,6 +6,7 @@ import { currentWeather } from '~/__fixtures__/current_weather'
 storiesOf('containers/views/CurrentWeather', module)
   .add('default', () => (
     <Presentational
+      loading={false}
       currentWeather={currentWeather}
     />
   ))
