@@ -1,31 +1,16 @@
 import React from 'react'
 import { NextPage } from 'next'
 import ForecastView from '~/containers/views/Forecast'
+import { useRouter } from 'next/router'
 
 type Props = React.ComponentProps<typeof ForecastView>
 
-const ForecastPage: NextPage<Props> = (props) => {
+const ForecastPage: NextPage<Props> = () => {
+  const router = useRouter()
+
   return (
-    <ForecastView {...props} />
+    <ForecastView code={String(router.query.code)} />
   )
-}
-
-export const getStaticPaths = async () => {
-  return  {
-    paths: [
-      {params: {code: 'tokyo'}},
-      {params: {code: 'osaka'}},
-    ],
-    fallback: false,
-  }
-}
-
-export const getStaticProps = async ({params} : any) => {
-  return {
-    props: {
-      code: String(params.code),
-    },
-  }
 }
 
 export default ForecastPage
