@@ -1,19 +1,12 @@
 import React from 'react'
 import { default as NextApp } from 'next/app'
 import { ThemeProvider } from '@material-ui/styles'
-import { Provider } from 'mobx-react'
 import theme from '~/theme'
 import GlobalStyle from '~/components/GlobalStyle'
-import makeStore, { Store } from '~/stores'
-import { withMobx } from '~/helpers/withMobx'
 import Layout from '~/layouts'
 import { SnackbarProvider } from 'notistack'
 
-type Props = {
-  store: Store
-}
-
-class App extends NextApp<Props> {
+export default class App extends NextApp {
   componentDidMount () {
     const jssStyles = document.querySelector('#jss-server-side')
     if (jssStyles && jssStyles.parentNode) {
@@ -22,21 +15,17 @@ class App extends NextApp<Props> {
   }
 
   render () {
-    const { Component, pageProps, store, router } = this.props
+    const { Component, pageProps, router } = this.props
 
     return (
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Provider {...store}>
-          <SnackbarProvider maxSnack={4}>
-            <Layout pathname={router.pathname}>
-              <Component {...pageProps} />
-            </Layout>
-          </SnackbarProvider>
-        </Provider>
+        <SnackbarProvider maxSnack={4}>
+          <Layout pathname={router.pathname}>
+            <Component {...pageProps} />
+          </Layout>
+        </SnackbarProvider>
       </ThemeProvider>
     )
   }
 }
-
-export default withMobx(makeStore)(App)

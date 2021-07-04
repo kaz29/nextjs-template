@@ -1,10 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Presentational from './components'
-import { Forecast } from '~/types'
-import client from '~/requests/client'
-import WeatherAPI from '~/requests/WeatherAPI'
-import { useStores } from '~/helpers/useStores'
-import { useSnackbar } from 'notistack'
+import { useForecast } from './hooks'
 
 type Props = {
   code?: string
@@ -12,33 +8,13 @@ type Props = {
 const ForecastView: React.FC<Props> = ({
   code,
 }) => {
-  const {app} = useStores()
-  const { enqueueSnackbar } = useSnackbar()
-  const [forecast, setForecast] = useState<Forecast|undefined>(undefined)
-
-  useEffect(() => {
-    if (!code) {
-      return
-    }
-    (async () => {
-      try {
-        app.showLoading()
-        const {response} = await client.request(WeatherAPI.getForecast({
-          q: code,
-          days: 7,
-          key: WeatherAPI.getApiKey(),
-        }))
-        setForecast(response)
-      } catch (error) {
-        enqueueSnackbar('Error', { variant: 'error'})
-      } finally {
-        app.hideLoading()
-      }
-    })()
-  }, [code])
+  const {
+    loading,
+    forecast,
+  } = useForecast({ code })
 
   return (
-    <Presentational forecast={forecast} />
+    <Presentational loading={loading} forecast={forecast} />
   )
 }
 
