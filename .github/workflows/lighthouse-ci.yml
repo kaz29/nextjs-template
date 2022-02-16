@@ -26,6 +26,7 @@ jobs:
         run: docker-compose up -d
       - name: run Lighthouse CI
         run: |
-          npx lhci autorun || echo "LHCI failed!"
+          npm install -g @lhci/cli@0.6.x
+          lhci autorun || echo "LHCI failed!"
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
