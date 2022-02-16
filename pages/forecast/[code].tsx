@@ -9,7 +9,7 @@ const ForecastPage: NextPage<Props> = () => {
   const router = useRouter()
 
   return (
-    <ForecastView code={String(router.query.code)} />
+    <ForecastView code={String(router.query.code || '')} />
   )
 }
 

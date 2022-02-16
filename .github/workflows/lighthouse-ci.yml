@@ -1,0 +1,31 @@
+name: lighthouse-ci
+
+on: [push]
+
+jobs:
+  lighthouseci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Setup nodejs
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+      - run: yarn install --dev
+      - name: Create .env
+        run: |
+          echo "" > .env
+          echo "TZ="| tee -a .env
+          echo "WEATHER_API_ENDPOINT=http://api.weatherapi.com/v1" | tee -a .env
+          echo "WEATHER_API_KEY=${{ secrets.WEATHER_API_KEY }}"| tee -a .env
+      - name: Build
+        run: yarn build
+      - name: Build
+        run: docker-compose up -d
+      - name: run Lighthouse CI
+        run: |
+          npx lhci autorun || echo "LHCI failed!"
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

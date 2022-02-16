@@ -1,0 +1,25 @@
+ci:
+  collect:
+    # collect options here
+    numberOfRuns: 1 # Lighthouse の試行回数は1回
+    puppeteerLaunchOptions:
+      defaultViewport: null
+    startServerCommand: 'npm run start' # プロダクションモードでローカルサーバーを起動する
+    url:
+      - 'http://localhost/'
+      - 'http://localhost/current/tokyo'
+      - 'http://localhost/forcast/tokyo'
+    settings:
+      disableStorageReset: true
+
+  assert:
+    # assert options here
+
+  upload:
+    # upload options here
+    target: 'temporary-public-storage'
+  server:
+    # server options here
+
+  wizard:
+    # wizard options here
